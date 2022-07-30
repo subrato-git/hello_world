@@ -23,7 +23,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Install library dependencies
         run: |
-          sudo ln -sf /bin/mkdir /usr/bin/mkdir
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
           nodejs \
@@ -37,9 +36,9 @@ jobs:
           bundler: 2.3.7
       - name: Create database
         run: |
-          mv config/database.ci.yml config/database.yml
-          cp .env.example .env
           export RAILS_ENV=test
+          cp config/database.ci.yml config/database.yml
+          bundle exec rake db:create
           bundle exec rake db:schema:load
       - name: Run tests
         id: rspec-test
