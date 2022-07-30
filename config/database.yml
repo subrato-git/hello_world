@@ -79,6 +79,11 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+staging:
+  <<: *default
+  database: ENV['DATABASE_NAME']
+
 production:
   <<: *default
-  database: my_app_production
+  database: ENV['DATABASE_NAME']
