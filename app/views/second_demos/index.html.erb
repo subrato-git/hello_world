@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Second demos</h1>
+
+<div id="second_demos">
+  <% @second_demos.each do |second_demo| %>
+    <%= render second_demo %>
+    <p>
+      <%= link_to "Show this second demo", second_demo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New second demo", new_second_demo_path %>
