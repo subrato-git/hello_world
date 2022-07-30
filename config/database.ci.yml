@@ -11,4 +11,4 @@ default: &default
 
 test:
   <<: *default
-  database: reservation_management_test<%= ENV['TEST_ENV_NUMBER'] %>
+  database: my_app_test
